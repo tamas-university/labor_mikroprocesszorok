@@ -92,21 +92,23 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int state = 0x00;
+  int state = 0x01;
   // ----------
   // main loop
   //-----------
   while (1)
   {
-    /* USER CODE END WHILE */
 	  //state változó értékvizsgálat
+	  // check which led to light up
 	  HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, state & 0x01? GPIO_PIN_SET : GPIO_PIN_RESET);
 	  HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, state & 0x02? GPIO_PIN_SET : GPIO_PIN_RESET);
 	  HAL_GPIO_WritePin(led6_GPIO_Port, led6_Pin, state & 0x04? GPIO_PIN_SET : GPIO_PIN_RESET);
 	  HAL_GPIO_WritePin(led7_GPIO_Port, led7_Pin, state & 0x08 ? GPIO_PIN_SET : GPIO_PIN_RESET);
 
+	  // shift the leds (shift the state variable)
 	  state <<= 1;
 
+	  // if the state reached 16 then reset it.
 	  if (state == 0x10)
 	  {
 		  state = 0x01;
@@ -114,11 +116,7 @@ int main(void)
 
 	  // delay
 	  HAL_Delay(100);
-
-	  //--------
-	  //end of my code
-	  //-------
-
+    /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
