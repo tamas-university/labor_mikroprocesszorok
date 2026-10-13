@@ -18,7 +18,7 @@ Az analóg-digitális átalakítás elméletének elsajátítása, az STM32 SAR 
   - 12 bites felbontás, jobbra igazítás (Right alignment), Single conversion konfiguráció.
 - [ ] **Mérés blokkoló (Polling) üzemmódban:**
   - Mérés indítása és lekérdezése: `HAL_ADC_Start()`, `HAL_ADC_PollForConversion()`, `HAL_ADC_GetValue()`, `HAL_ADC_Stop()`.
-  - A digitális kód átszámítása valós feszültségértékké ($U = rac{ADC}{4095} \cdot 3.3	ext{ V}$).
+  - A digitális kód átszámítása valós feszültségértékké ($U = rac{ADC}{4095} \cdot 3.3	ext{ V}$).
 - [ ] **Mérés megszakításos (Interrupt) üzemmódban:**
   - ADC globális megszakítás engedélyezése az NVIC-ben.
   - Mérés indítása: `HAL_ADC_Start_IT()`.
